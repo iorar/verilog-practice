@@ -1,12 +1,12 @@
 /*************************************************************************
- * System Name : ˜_—‰ñ˜H‚ÌŠî‘buÀ
+ * System Name : è«–ç†å›è·¯ã®åŸºç¤è¬›åº§
  * File Name   : data_displayE.v
- * Contents    : ‰‰K2,3,4
- * Model       : MU500-RZX‘Î‰
+ * Contents    : æ¼”ç¿’2,3,4
+ * Model       : MU500-RZXå¯¾å¿œ
  * FPGA        : Spartan7
  * Author      : MMS
- * History     : 2020.11.11 ì¬
- * Memo        : 7ƒZƒOƒƒ“ƒgLED•\¦‰ñ˜H Šg’£‹@”\‚ ‚è
+ * History     : 2020.11.11 ä½œæˆ
+ * Memo        : 7ã‚»ã‚°ãƒ¡ãƒ³ãƒˆLEDè¡¨ç¤ºå›è·¯ æ‹¡å¼µæ©Ÿèƒ½ã‚ã‚Š
  *
  *  Copyright (C) 2020
  *  Mitsubishi Electric Micro-Computer Application Software Co.,Ltd
@@ -30,14 +30,14 @@ module data_displayE(
 input  	CLK;				// System Clock
 input  	RSTN;				// System Reset
 
-// •\¦‚³‚¹‚½‚¢’l ”’l‚Ìê‡‚Í‰ºˆÊ4Bit‚ğg—p‚·‚éBãˆÊ‚Ì1Bit‚Í•¶š•\¦‚ÌŠg’£—p
+// è¡¨ç¤ºã•ã›ãŸã„å€¤ æ•°å€¤ã®å ´åˆã¯ä¸‹ä½4Bitã‚’ä½¿ç”¨ã™ã‚‹ã€‚ä¸Šä½ã®1Bitã¯æ–‡å­—è¡¨ç¤ºæ™‚ã®æ‹¡å¼µç”¨
 input  	[4:0] SEG_DATA_1,SEG_DATA_2,SEG_DATA_3,SEG_DATA_4;
 input  	[4:0] SEG_DATA_5,SEG_DATA_6,SEG_DATA_7,SEG_DATA_8;
 
 
 
 // ------ output -------------------------------------------
-// •\¦‚³‚¹‚éƒpƒ^[ƒ“
+// è¡¨ç¤ºã•ã›ã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³
 output [7:0] SEG_PAT_1,SEG_PAT_2,SEG_PAT_3,SEG_PAT_4;
 output [7:0] SEG_PAT_5,SEG_PAT_6,SEG_PAT_7,SEG_PAT_8;
 
@@ -46,7 +46,7 @@ output [7:0] SEG_PAT_5,SEG_PAT_6,SEG_PAT_7,SEG_PAT_8;
 
 
 //---------------------------
-//  ƒpƒ^[ƒ“•ÏŠ·
+//  ãƒ‘ã‚¿ãƒ¼ãƒ³å¤‰æ›
 //---------------------------
 
 display_module dm1(.CLK(CLK),.RSTN(RSTN),.SEG_VAL(SEG_DATA_1),.SEG(SEG_PAT_1));
@@ -92,7 +92,7 @@ reg    	[7:0] SEG;		// Display 7SEG Register
 //  7SEG DISPLAY
 //------------------
 
-always@( posedge CLK or negedge RSTN ) begin    //always•¶‚Å‚Ìì¬—á
+always@( posedge CLK or negedge RSTN ) begin    //alwaysæ–‡ã§ã®ä½œæˆä¾‹
   	if( !RSTN )begin
     	SEG <= 8'b00000010;			//
 	end
@@ -126,15 +126,15 @@ always@( posedge CLK or negedge RSTN ) begin    //always•¶‚Å‚Ìì¬—á
 			5'h18: SEG <= 8'b10001100; // T
 			5'h19: SEG <= 8'b01111100; // U
 
-//‚±‚±•\¦‚³‚¹‚½‚¢ƒpƒ^[ƒ“‚ğ’Ç‰Á‚Å‚«‚Ü‚·
+//ã“ã“è¡¨ç¤ºã•ã›ãŸã„ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’è¿½åŠ ã§ãã¾ã™
 	//		5'h1A: SEG <= 		 // -
 	//		5'h1B: SEG <= 		 // -
 	//		5'h1C: SEG <= 		 // -
 	//		5'h1D: SEG <= 		 // -
-//‚±‚±•\¦‚³‚¹‚½‚¢ƒpƒ^[ƒ“‚ğ’Ç‰Á‚Å‚«‚Ü‚·
+//ã“ã“è¡¨ç¤ºã•ã›ãŸã„ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’è¿½åŠ ã§ãã¾ã™
 
 			5'h1E: SEG <= 8'b00000001; // dot
-			5'h1F: SEG <= 8'b00000000; // Á‚·
+			5'h1F: SEG <= 8'b00000000; // æ¶ˆã™
 
 			default : SEG <= 8'b00000000;
 		endcase

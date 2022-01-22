@@ -1,11 +1,11 @@
 /*************************************************************************
- * System Name : ƒvƒƒZƒbƒTİŒvuÀ
+ * System Name : ãƒ—ãƒ­ã‚»ãƒƒã‚µè¨­è¨ˆè¬›åº§
  * File Name   : top_cpu.v
  * Contents    : 
- * Model       : MU500-RZX‘Î‰
+ * Model       : MU500-RZXå¯¾å¿œ
  * FPGA        : Spartan-7
  * Author      : MMS
- * History     : 2020.12.4 ì¬
+ * History     : 2020.12.4 ä½œæˆ
  * Memo        : 
  *
  *  Copyright (C) 2020
@@ -37,8 +37,8 @@ input  [3:0]  RSW;      // Rorary Switch
 
 
 //--- output ------------------------------------------------------------------
-output [ 7:0] SEG_7A,SEG_7B,SEG_7C,SEG_7D;	//‚VƒZƒOƒƒ“ƒgLEDã’i
-output [ 7:0] SEG_7E,SEG_7F,SEG_7G,SEG_7H;	//‚VƒZƒOƒƒ“ƒgLED‰º’i
+output [ 7:0] SEG_7A,SEG_7B,SEG_7C,SEG_7D;	//ï¼—ã‚»ã‚°ãƒ¡ãƒ³ãƒˆLEDä¸Šæ®µ
+output [ 7:0] SEG_7E,SEG_7F,SEG_7G,SEG_7H;	//ï¼—ã‚»ã‚°ãƒ¡ãƒ³ãƒˆLEDä¸‹æ®µ
 output [ 7:0] LED_OUT;						//LED
 
 

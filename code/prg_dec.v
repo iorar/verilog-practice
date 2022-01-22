@@ -78,7 +78,7 @@ reg    [3:0] MEM_A;                          // MEMORY ADDRESS
                 OUT_LD      = 1'b0;
                 PRG_CNT_LD  = 1'b0;
                 CARRY_LD    = 1'b0;
-                ALU_SEL     = 4'b0000;
+                ALU_SEL     = 4'h0;
             end
         4'h1:                // MOV R1,Im
             begin
@@ -90,7 +90,7 @@ reg    [3:0] MEM_A;                          // MEMORY ADDRESS
                 OUT_LD      = 1'b0;
                 PRG_CNT_LD  = 1'b0;
                 CARRY_LD    = 1'b0;
-                ALU_SEL     = 4'b0000;
+                ALU_SEL     = 4'h0;
             end
 
         4'h2:                // MOV @R1,R0
@@ -103,7 +103,7 @@ reg    [3:0] MEM_A;                          // MEMORY ADDRESS
                 OUT_LD      = 1'b0;
                 PRG_CNT_LD  = 1'b0;
                 CARRY_LD    = 1'b0;
-                ALU_SEL     = 4'b0011;
+                ALU_SEL     = 4'h3;
             end
 
         4'h3:                // MOV R0,@R1
@@ -116,7 +116,7 @@ reg    [3:0] MEM_A;                          // MEMORY ADDRESS
                 OUT_LD      = 1'b0;
                 PRG_CNT_LD  = 1'b0;
                 CARRY_LD    = 1'b0;
-                ALU_SEL     = 4'b0001;
+                ALU_SEL     = 4'h1;
             end
 
         4'h4:                // MOV @Im,R0
@@ -129,7 +129,7 @@ reg    [3:0] MEM_A;                          // MEMORY ADDRESS
                 OUT_LD      = 1'b0;
                 PRG_CNT_LD  = 1'b0;
                 CARRY_LD    = 1'b0;
-                ALU_SEL     = 4'b0011;
+                ALU_SEL     = 4'h3;
             end
 
         4'h5:                // MOV R0,@Im
@@ -142,7 +142,7 @@ reg    [3:0] MEM_A;                          // MEMORY ADDRESS
                 OUT_LD      = 1'b0;
                 PRG_CNT_LD  = 1'b0;
                 CARRY_LD    = 1'b0;
-                ALU_SEL     = 4'b0001;
+                ALU_SEL     = 4'h1;
             end
 
         4'h6:                // MOV @Im,R1
@@ -155,7 +155,7 @@ reg    [3:0] MEM_A;                          // MEMORY ADDRESS
                 OUT_LD      = 1'b0;
                 PRG_CNT_LD  = 1'b0;
                 CARRY_LD    = 1'b0;
-                ALU_SEL     = 4'b0100;
+                ALU_SEL     = 4'h4;
             end
 
         4'h7:                // MOV R1,@Im
@@ -168,7 +168,7 @@ reg    [3:0] MEM_A;                          // MEMORY ADDRESS
                 OUT_LD      = 1'b0;
                 PRG_CNT_LD  = 1'b0;
                 CARRY_LD    = 1'b0;
-                ALU_SEL     = 4'b0001;
+                ALU_SEL     = 4'h1;
             end
 
         4'h8:                // MOV R1,R0
@@ -181,7 +181,7 @@ reg    [3:0] MEM_A;                          // MEMORY ADDRESS
                 OUT_LD      = 1'b0;
                 PRG_CNT_LD  = 1'b0;
                 CARRY_LD    = 1'b0;
-                ALU_SEL     = 4'b0011;
+                ALU_SEL     = 4'h3;
             end
 
         4'h9:                // MOV R0,R1
@@ -194,7 +194,7 @@ reg    [3:0] MEM_A;                          // MEMORY ADDRESS
                 OUT_LD      = 1'b0;
                 PRG_CNT_LD  = 1'b0;
                 CARRY_LD    = 1'b0;
-                ALU_SEL     = 4'b0100;
+                ALU_SEL     = 4'h4;
             end
 
         4'hA:                // ADD R0,Im
@@ -207,7 +207,7 @@ reg    [3:0] MEM_A;                          // MEMORY ADDRESS
                 OUT_LD      = 1'b0;
                 PRG_CNT_LD  = 1'b0;
                 CARRY_LD    = 1'b1;
-                ALU_SEL     = 4'b0101;
+                ALU_SEL     = 4'h5;
             end
 
         4'hB:                // ADD R1,Im
@@ -220,7 +220,7 @@ reg    [3:0] MEM_A;                          // MEMORY ADDRESS
                 OUT_LD      = 1'b0;
                 PRG_CNT_LD  = 1'b0;
                 CARRY_LD    = 1'b1;
-                ALU_SEL     = 4'b0110;
+                ALU_SEL     = 4'h6;
             end
 
         4'hC:                // ADD R0,R1
@@ -233,7 +233,7 @@ reg    [3:0] MEM_A;                          // MEMORY ADDRESS
                 OUT_LD      = 1'b0;
                 PRG_CNT_LD  = 1'b0;
                 CARRY_LD    = 1'b1;
-                ALU_SEL     = 4'b0111;
+                ALU_SEL     = 4'h7;
             end
 
         4'hD:                // JMP Im
@@ -246,7 +246,7 @@ reg    [3:0] MEM_A;                          // MEMORY ADDRESS
                 OUT_LD      = 1'b0;
                 PRG_CNT_LD  = 1'b1;
                 CARRY_LD    = 1'b0;
-                ALU_SEL     = 4'b0000;
+                ALU_SEL     = 4'h0;
             end
 
         4'hE:                // JNC ALU_SEL
@@ -262,7 +262,7 @@ reg    [3:0] MEM_A;                          // MEMORY ADDRESS
                     OUT_LD      = 1'b0;
                     PRG_CNT_LD  = 1'b1;
                     CARRY_LD    = 1'b0;
-                    ALU_SEL     = 4'b0000;
+                    ALU_SEL     = 4'h0;
                 end
                 1'b1:
                 begin
@@ -274,7 +274,7 @@ reg    [3:0] MEM_A;                          // MEMORY ADDRESS
                     OUT_LD      = 1'b0;
                     PRG_CNT_LD  = 1'b0;
                     CARRY_LD    = 1'b0;
-                    ALU_SEL     = 4'b0000;
+                    ALU_SEL     = 4'h0;
                 end
                 endcase
             end
@@ -289,7 +289,7 @@ reg    [3:0] MEM_A;                          // MEMORY ADDRESS
                 OUT_LD      = 1'b0;
                 PRG_CNT_LD  = 1'b0;
                 CARRY_LD    = 1'b1;
-                ALU_SEL     = 4'b1000;
+                ALU_SEL     = 4'h8;
             end
 
         default:              // 

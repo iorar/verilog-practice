@@ -38,17 +38,28 @@ reg  [7:0] MC_CODE;    // Machine Code
         case( PCNT )
 //***************************************    sample               [DISPLAY]R0,R1  ,C,D     [LED]0,1,2,3
             // MY TEST PROGRAM by BITOU YUSUKE
-            4'h0: MC_CODE    <= {4'h5, 4'hD};//   MOV R0,@Im     [DISPLAY]0,X    ,0,0     [LED]0,0,0,0
-            4'h1: MC_CODE    <= {4'h1, 4'h2};//   MOV R1,2     [DISPLAY]2,X,   ,0,0     [LED]0,0,0,0
-            4'h2: MC_CODE    <= {4'hF, 4'h1};//   SUB R0,R1     [DISPLAY]+1,0,   ,0,0     [LED]0,0,0,0
-            4'h3: MC_CODE    <= {4'b1110, 4'h2};//   JNC 2        ketaage made add
-            4'h4: MC_CODE    <= {4'b1010, 4'h0};//   ADD R0,0     [DISPLAY],+1,   ,0,0     [LED]0,0,0,0
-            4'h5: MC_CODE    <= {4'h1, 4'h1};//   MOV R1,1     [DISPLAY]2,X,   ,0,0     [LED]0,0,0,0
-            4'h6: MC_CODE    <= {4'b1110, 4'h8};//   JNC 8        ketaage made add
-            4'h7: MC_CODE    <= {4'hB, 4'h0};//   ADD R1,0     [DISPLAY],+1,   ,0,0     [LED]0,0,0,0
-            4'h8: MC_CODE    <= {4'hB, 4'h1};//   ADD R1,1     [DISPLAY],+1,   ,0,0     [LED]0,0,0,0
-            4'h9: MC_CODE    <= {4'h6, 4'hE};//   MOV R1.OUT    [DISPLAY]5,1,   ,1,0?     [LED]0,0,0,0
-            4'hA: MC_CODE    <= {4'b1101, 4'h0};//   JMP START    [DISPLAY]5,1,   ,1,4?     [LED]0,0,0,0
+            // inの偶奇を判定する 奇数ならLED_OUT[0]を点灯
+            // R0 <- IN
+            // R1 <- 2
+            // LABEL
+            // R0 <- R0 - R1 + CARRY
+            // if(CARRY == 0)
+            //   JUMP LABEL
+            // R0 <- R0 + 1 + CARRY   //(このときCARRY=1)
+            // if(CARRY == 0)
+            //   /R0は奇数, R0=0
+            // /R0は奇数, R0=E
+            4'h0: MC_CODE    <= {4'h5, 4'hD};//   MOV R0,@Im
+            4'h1: MC_CODE    <= {4'h1, 4'h2};//   MOV R1,2
+            4'h2: MC_CODE    <= {4'hF, 4'h1};//   SUB R0,R1
+            4'h3: MC_CODE    <= {4'hE, 4'h2};//   JNC 2
+            4'h4: MC_CODE    <= {4'h1, 4'h2};//   MOV R1,1
+            4'h5: MC_CODE    <= {4'hA, 4'h1};//   ADD R0,1
+            4'h6: MC_CODE    <= {4'hE, 4'h2};//   JNC 8
+            4'h7: MC_CODE    <= {4'h1, 4'h2};//   MOV R1,2
+            4'h8: MC_CODE    <= {4'h6, 4'hE};//   MOV @OUT,R1
+            4'h9: MC_CODE    <= {4'hD, 4'h0};//   JMP START
+            4'hA: MC_CODE    <= 8'b11011111; //
             4'hB: MC_CODE    <= 8'b11011111; //
             4'hC: MC_CODE    <= 8'b11011111; //
             4'hD: MC_CODE    <= 8'b11011111; //

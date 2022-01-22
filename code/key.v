@@ -1,12 +1,12 @@
 /*************************************************************************
- * System Name : ƒvƒƒZƒbƒTİŒvuÀ
+ * System Name : ãƒ—ãƒ­ã‚»ãƒƒã‚µè¨­è¨ˆè¬›åº§
  * File Name   : key.v
  * Contents    : 
- * Model       : MU500-RZX‘Î‰
+ * Model       : MU500-RZXå¯¾å¿œ
  * FPGA        : Spartan-7
  * Author      : MMS
- * History     : 2020.12.4 ì¬
- * Memo        : ƒL[“ü—Í§Œä(ƒ`ƒƒƒ^ƒŠƒ“ƒO‹zû‚ ‚è)
+ * History     : 2020.12.4 ä½œæˆ
+ * Memo        : ã‚­ãƒ¼å…¥åŠ›åˆ¶å¾¡(ãƒãƒ£ã‚¿ãƒªãƒ³ã‚°å¸åã‚ã‚Š)
  *
  *  Copyright (C) 2020
  *  Mitsubishi Electric Micro-Computer Application Software Co.,Ltd
