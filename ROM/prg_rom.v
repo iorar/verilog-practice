@@ -51,14 +51,14 @@ reg  [7:0] MC_CODE;    // Machine Code
             // ONE_LED_LIT // R0 は奇数
             4'h0: MC_CODE    <= {4'h9, 4'h0};//   IIN R0 //読み込み
             4'h1: MC_CODE    <= {4'h4, 4'hE};//   MOV @OUT, R0
-            4'h2: MC_CODE    <= 8'b11011111;//
+            4'h2: MC_CODE    <= {4'hD, 4'h0};//   JMP START
             4'h3: MC_CODE    <= {4'hE, 4'h2};//
             4'h4: MC_CODE    <= {4'h1, 4'h3};//
             4'h5: MC_CODE    <= {4'hA, 4'h1};//
             4'h6: MC_CODE    <= {4'hE, 4'h8};//
             4'h7: MC_CODE    <= {4'h1, 4'h1};//
             4'h8: MC_CODE    <= 8'b11011111;//
-            4'h9: MC_CODE    <= 8'b11011111;/
+            4'h9: MC_CODE    <= 8'b11011111;//
             4'hA: MC_CODE    <= 8'b11011111; //
             4'hB: MC_CODE    <= 8'b11011111; //
             4'hC: MC_CODE    <= 8'b11011111; //

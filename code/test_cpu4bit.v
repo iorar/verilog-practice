@@ -27,7 +27,7 @@ cpu4bit        u_cpu4bit(
 	.MODESET(PSW_SIG[1]),
 	.CPURST(PSW_SIG[0]),
 	.STEPINC(PSW_SIG[2]),
-	.RSW(~RSW),
+	.RSW(RSW),
 	.SEC_SIG(SEC_SIG),
 //output
 	.LED(LED_OUT),
@@ -49,7 +49,7 @@ end
 initial begin
     CLK = 1; RSTN = 1; SEC_SIG = 1;
     PSW_SIG = 3'b000;
-    RSW = 5;
+    RSW = 1;
 
     // reset
     #25 RSTN = 0;

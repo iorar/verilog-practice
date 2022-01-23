@@ -184,7 +184,7 @@ reg    [3:0] MEM_A;                          // MEMORY ADDRESS
                 ALU_SEL     = 4'h3;
             end
 
-        4'h9:                // IIN Im
+        4'h9:                // IIN R0
             begin
                 R0_LD       = 1'b1;
                 R1_LD       = 1'b0;
@@ -196,7 +196,18 @@ reg    [3:0] MEM_A;                          // MEMORY ADDRESS
                 CARRY_LD    = 1'b0;
                 ALU_SEL     = 4'h2;
             end
-
+        // 4'h9:                // MOV R0,R1
+        //     begin
+        //         R0_LD       = 1'b1;
+        //         R1_LD       = 1'b0;
+        //         MEM_A       = 4'h0;
+        //         MEMW_LD     = 1'b0;
+        //         MEMR_LD     = 1'b0;
+        //         OUT_LD      = 1'b0;
+        //         PRG_CNT_LD  = 1'b0;
+        //         CARRY_LD    = 1'b0;
+        //         ALU_SEL     = 4'h4;
+        //     end
         4'hA:                // ADD R0,Im
             begin
                 R0_LD       = 1'b1;
@@ -279,7 +290,19 @@ reg    [3:0] MEM_A;                          // MEMORY ADDRESS
                 endcase
             end
 
-        4'hF:                // SUB R0,R1
+        // 4'hF:                // SUB R0,R1
+        //     begin
+        //         R0_LD       = 1'b1;
+        //         R1_LD       = 1'b0;
+        //         MEM_A       = 4'h0;
+        //         MEMW_LD     = 1'b0;
+        //         MEMR_LD     = 1'b0;
+        //         OUT_LD      = 1'b0;
+        //         PRG_CNT_LD  = 1'b0;
+        //         CARRY_LD    = 1'b1;
+        //         ALU_SEL     = 4'h8;
+        //     end
+        4'hF:                // MOD R0,R1
             begin
                 R0_LD       = 1'b1;
                 R1_LD       = 1'b0;
@@ -288,8 +311,8 @@ reg    [3:0] MEM_A;                          // MEMORY ADDRESS
                 MEMR_LD     = 1'b0;
                 OUT_LD      = 1'b0;
                 PRG_CNT_LD  = 1'b0;
-                CARRY_LD    = 1'b1;
-                ALU_SEL     = 4'h8;
+                CARRY_LD    = 1'b0;
+                ALU_SEL     = 4'h9;
             end
 
         default:              // 
