@@ -49,7 +49,7 @@ end
 initial begin
     CLK = 1; RSTN = 1; SEC_SIG = 1;
     PSW_SIG = 3'b000;
-    RSW = 0;
+    RSW = 5;
 
     // reset
     #25 RSTN = 0;

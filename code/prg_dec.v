@@ -184,7 +184,7 @@ reg    [3:0] MEM_A;                          // MEMORY ADDRESS
                 ALU_SEL     = 4'h3;
             end
 
-        4'h9:                // MOV R0,R1
+        4'h9:                // IIN Im
             begin
                 R0_LD       = 1'b1;
                 R1_LD       = 1'b0;
@@ -194,7 +194,7 @@ reg    [3:0] MEM_A;                          // MEMORY ADDRESS
                 OUT_LD      = 1'b0;
                 PRG_CNT_LD  = 1'b0;
                 CARRY_LD    = 1'b0;
-                ALU_SEL     = 4'h4;
+                ALU_SEL     = 4'h2;
             end
 
         4'hA:                // ADD R0,Im

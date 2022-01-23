@@ -38,27 +38,27 @@ reg  [7:0] MC_CODE;    // Machine Code
         case( PCNT )
 //***************************************    sample               [DISPLAY]R0,R1  ,C,D     [LED]0,1,2,3
             // MY TEST PROGRAM by BITOU YUSUKE
-            // inの偶奇を判定する 奇数ならLED_OUTを1つ点灯 偶数なら2個点灯
+            // R0 の偶奇を判定する
+            // 奇数なら LED_OUT を 1 つ点灯 偶数なら 2 個点灯
             // R0 <- IN
             // R1 <- 2
-            // LABEL
-            // R0 <- R0 - R1 + CARRY
+            // LABEL: R0 <- R0 - R1
             // if(CARRY == 0)
             //   JUMP LABEL
-            // R0 <- R0 + 1 + CARRY   //(このときCARRY=1)
+            // R0 <- R0 + 1 // このときCARRY=1
             // if(CARRY == 0)
-            //   /R0は奇数, R0=0
-            // /R0は奇数, R0=E
-            4'h0: MC_CODE    <= {4'h0, 4'h3};//   MOV R0,3 //ここに偶奇判定したい数を入れる
-            4'h1: MC_CODE    <= {4'h1, 4'h2};//   MOV R1,2
-            4'h2: MC_CODE    <= {4'hF, 4'h1};//   SUB R0,R1
-            4'h3: MC_CODE    <= {4'hE, 4'h2};//   JNC 2
-            4'h4: MC_CODE    <= {4'h1, 4'h3};//   MOV R1,3
-            4'h5: MC_CODE    <= {4'hA, 4'h1};//   ADD R0,1
-            4'h6: MC_CODE    <= {4'hE, 4'h8};//   JNC 8
-            4'h7: MC_CODE    <= {4'h1, 4'h1};//   MOV R1,1
-            4'h8: MC_CODE    <= {4'h6, 4'hE};//   MOV @OUT,R1
-            4'h9: MC_CODE    <= {4'hD, 4'h0};//   JMP START
+            //    TWO_LED_LIT // R0 は偶数
+            // ONE_LED_LIT // R0 は奇数
+            4'h0: MC_CODE    <= {4'h9, 4'h0};//   IIN R0 //読み込み
+            4'h1: MC_CODE    <= {4'h4, 4'hE};//   MOV @OUT, R0
+            4'h2: MC_CODE    <= 8'b11011111;//
+            4'h3: MC_CODE    <= {4'hE, 4'h2};//
+            4'h4: MC_CODE    <= {4'h1, 4'h3};//
+            4'h5: MC_CODE    <= {4'hA, 4'h1};//
+            4'h6: MC_CODE    <= {4'hE, 4'h8};//
+            4'h7: MC_CODE    <= {4'h1, 4'h1};//
+            4'h8: MC_CODE    <= 8'b11011111;//
+            4'h9: MC_CODE    <= 8'b11011111;/
             4'hA: MC_CODE    <= 8'b11011111; //
             4'hB: MC_CODE    <= 8'b11011111; //
             4'hC: MC_CODE    <= 8'b11011111; //

@@ -95,6 +95,12 @@ always @( ALU_SEL or R0_REG or R1_REG or Im or IOIN or MEMIN ) begin
             ALU_Q1 <= R1_REG;
         end
 
+        // 追加分 R0%R1を返す
+        4'h9:begin
+            ALU_Q0 <= R0_REG;
+            ALU_Q1 <= R1_REG;
+        end
+
         default:begin
             ALU_Q0 <= 4'h0;
             ALU_Q1 <= 4'h0;
@@ -109,6 +115,10 @@ always @( ALU_Q0 or ALU_Q1 or ALU_SEL )
      if( ALU_SEL == 4'h8)   //V3.0
        begin
          ALU_SUM <= {1'b0,ALU_Q0} - {1'b0,ALU_Q1}; 
+       end
+     else if( ALU_SEL == 4'h9)   //追加分 R0%R1
+       begin
+         ALU_SUM <= {1'b0,ALU_Q0} % {1'b0,ALU_Q1}; 
        end
      else  begin
          ALU_SUM <= {1'b0,ALU_Q0} + {1'b0,ALU_Q1};
