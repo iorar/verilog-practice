@@ -38,7 +38,7 @@ reg  [7:0] MC_CODE;    // Machine Code
         case( PCNT )
 //***************************************    sample               [DISPLAY]R0,R1  ,C,D     [LED]0,1,2,3
             // MY TEST PROGRAM by BITOU YUSUKE
-            // inの偶奇を判定する 奇数ならLED_OUT[0]を点灯
+            // inの偶奇を判定する 奇数ならLED_OUTを1つ点灯 偶数なら2個点灯
             // R0 <- IN
             // R1 <- 2
             // LABEL
@@ -49,14 +49,14 @@ reg  [7:0] MC_CODE;    // Machine Code
             // if(CARRY == 0)
             //   /R0は奇数, R0=0
             // /R0は奇数, R0=E
-            4'h0: MC_CODE    <= {4'h5, 4'hD};//   MOV R0,@Im
+            4'h0: MC_CODE    <= {4'h0, 4'h3};//   MOV R0,3 //ここに偶奇判定したい数を入れる
             4'h1: MC_CODE    <= {4'h1, 4'h2};//   MOV R1,2
             4'h2: MC_CODE    <= {4'hF, 4'h1};//   SUB R0,R1
             4'h3: MC_CODE    <= {4'hE, 4'h2};//   JNC 2
-            4'h4: MC_CODE    <= {4'h1, 4'h2};//   MOV R1,1
+            4'h4: MC_CODE    <= {4'h1, 4'h3};//   MOV R1,3
             4'h5: MC_CODE    <= {4'hA, 4'h1};//   ADD R0,1
-            4'h6: MC_CODE    <= {4'hE, 4'h2};//   JNC 8
-            4'h7: MC_CODE    <= {4'h1, 4'h2};//   MOV R1,2
+            4'h6: MC_CODE    <= {4'hE, 4'h8};//   JNC 8
+            4'h7: MC_CODE    <= {4'h1, 4'h1};//   MOV R1,1
             4'h8: MC_CODE    <= {4'h6, 4'hE};//   MOV @OUT,R1
             4'h9: MC_CODE    <= {4'hD, 4'h0};//   JMP START
             4'hA: MC_CODE    <= 8'b11011111; //

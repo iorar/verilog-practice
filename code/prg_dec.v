@@ -152,7 +152,7 @@ reg    [3:0] MEM_A;                          // MEMORY ADDRESS
                 MEM_A       = MC_CODE[3:0];
                 MEMW_LD     = 1'b1;
                 MEMR_LD     = 1'b0;
-                OUT_LD      = 1'b0;
+                OUT_LD      = 1'b1;
                 PRG_CNT_LD  = 1'b0;
                 CARRY_LD    = 1'b0;
                 ALU_SEL     = 4'h4;
