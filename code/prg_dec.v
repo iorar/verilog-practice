@@ -260,7 +260,7 @@ reg    [3:0] MEM_A;                          // MEMORY ADDRESS
                 ALU_SEL     = 4'h0;
             end
 
-        4'hE:                // JNC ALU_SEL
+        4'hE:                // JNC Im
             begin
                 case(CARRY)
                 1'b0:
